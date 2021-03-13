@@ -18,8 +18,17 @@ You will need to install MySQL for the script to: dump databases, execute SQL co
 Both MySQL and the AWS CLI required that you provide credentials for authentication.
 
 For MySQL use the following command:
-- ````mysql_config_editor set --login-path=BACKUP_OPERATOR --user=localuser --password````
+- ````mysql_config_editor set --login-path=BACKUP_OPERATOR --user=backup_user --password````
 - The login path for this script is set to "BACKUP_OPERATOR". You can change it in the configuration.
+- You can create any user and change ```backup_user``` to your own.
+
+Below is example SQL to create a backup user:
+
+````
+CREATE USER 'backup_user'@'%' IDENTIFIED BY 'verySecurePassword123!';
+GRANT ALTER, SELECT, SHOW VIEW, PROCESS, LOCK TABLES ON *.* TO 'backup_user'@'%';
+FLUSH privileges;
+````
 
 For the AWS CLI use the following command:
 - ````aws configure````

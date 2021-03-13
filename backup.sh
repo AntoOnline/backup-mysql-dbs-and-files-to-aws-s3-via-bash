@@ -1,7 +1,38 @@
 #!/bin/bash
 
+# Current script path
+SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+
 # Name of config settings file
-CONFIGFILE=.settings.conf
+CONFIGFILE="$SCRIPTPATH/.settings.conf"
+
+# Folder where the MySQL dumps and archive files are stored. 
+BACKUP_PATH="$SCRIPTPATH/backups"
+
+# Folder where logs are stored
+LOG_PATH="$SCRIPTPATH/logs"
+
+# The folder where custom before and after bash scripts are stored. These scripts 
+# will execute before and after a backup occurs for a folder and database. Make 
+# sure these files are executable, and the parent folder is correct. This allows 
+# you to pause a system momentarily while the backup occurs.
+#
+# To set a "before" action script for a database called "myDatabase":
+#   - Create: $ACTIONS/mysql/myDatabase/before.sh 
+#   - This script will be executed before the database: "myDatabase", is backed up.
+#
+# To set a "after" action script for a database called "myDatabase":
+#   - Create: $ACTIONS/mysql/myDatabase/after.sh 
+#   - This script will be executed after the database: "myDatabase", is backed up.
+#
+# To set a "before" action script for a folder called "myFolder":
+#   - Create: $ACTIONS/folders/myFolder/before.sh 
+#   - This script will be executed before the folder: "myFolder", is backed up.
+#
+# To set a "after" action script for a folder called "myFolder":
+#   - Create: $ACTIONS/folders/myFolder/after.sh 
+#   - This script will be executed after the folder: "myFolder", is backed up.
+ACTIONS_PATH="$SCRIPTPATH/actions"
 
 # Make sure bins exists
 check_bin_apps(){
