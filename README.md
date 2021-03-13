@@ -25,7 +25,8 @@ For the AWS CLI use the following command:
 
 This following file structure is used:
 - /backup.sh - The main script doing all the magic!
-- /settings.conf - The configuration that is specific to you. This file is required.
+- /example.settings.conf - An example configuration file. This file is required.
+- /.settings.conf - Create manually or on first run. Change this file as is required.
 - /actions/mysql/* - The custom before and after scripts for each database. This folder is optional and is manually created.
 - /actions/folders/* - The custom before and after scripts for each folder archive. This folder is optional and is manually created.
 - /backups/* - This is where all backups are stored, until cleanup. This folder is auto-created when the script runs.
@@ -56,7 +57,7 @@ Using a after script for a database called "NextCloud", you can turn maintenance
 
 Here are some reasons to use InnoDB vs MyISAM:
 - InnoDB has row-level locking. MyISAM locks a full table.
-- InnoDB has referential integrity which support foreign keys (RDBMS) and relationship constraints., MyISAM does not.
+- InnoDB has referential integrity which support foreign keys and relationship constraints. MyISAM does not.
 - InnoDB supports transactions, commits and roll back. MyISAM does not.
 - InnoDB is more reliable as it uses transactional logs for auto recovery. MyISAM does not.
 
@@ -112,7 +113,7 @@ The following settings can be found in settings.conf under: FOLDER BACKUP SETTIN
 # Number of archive folders to process. Values: 0, and up.
 TOTAL_ARCHIVE_FOLDERS=2
 
-# Each folder is handled in a recuresive manner.
+# Each folder is handled in a recursive manner.
 # Do not use ~ in the path.
 # Add or remove below to match $TOTAL_ARCHIVE_FOLDERS.
 FOLDER_1_ARCHIVE_PATHS="/home/anthony/Some Folder"

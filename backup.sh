@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Name of config settings file
-CONFIGFILE=settings.conf
+CONFIGFILE=.settings.conf
 
 # Make sure bins exists
 check_bin_apps(){
@@ -207,7 +207,12 @@ remove_old_backups_and_logs(){
     echo_completed    
 }
 
-error_if_file_not_exists $CONFIGFILE
+error_if_file_not_exists "example.settings.conf"
+
+if [ ! -f $CONFIGFILE ]; then
+  cp "example.settings.conf" $CONFIGFILE
+fi
+
 source $CONFIGFILE
 
 check_bin_apps
