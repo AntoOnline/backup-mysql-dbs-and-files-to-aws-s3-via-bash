@@ -54,7 +54,10 @@ check_bin_apps(){
 
 # Create folder if it does not exists
 create_folder_if_not_exists(){
-    [ ! -d "$1" ] && "$MKDIR" -p "$1"
+    if [ ! -d "$1" ]; then
+        "$MKDIR" -p "$1"
+        [ $VERBOSE -eq 1 ] && echo "Created folder $1"  
+    fi
 }
 
 # Error if file does not exist
@@ -87,24 +90,24 @@ check_mysql_connection(){
 
 # Started a function output
 echo_started() {
-  [ $VERBOSE -eq 1 ] && echo "# $1"
-  [ $VERBOSE -eq 1 ] && echo ""  
+    [ $VERBOSE -eq 1 ] && echo "# $1"
+    [ $VERBOSE -eq 1 ] && echo ""  
 }
 
 # Started a function output
 echo_in_progress() {
-  [ $VERBOSE -eq 1 ] && echo "- $1"
+    [ $VERBOSE -eq 1 ] && echo "- $1"
 }
 
 # Completed a function output
 echo_completed() {
-  [ $VERBOSE -eq 1 ] && echo "  ------"
-  [ $VERBOSE -eq 1 ] && echo "" 
+    [ $VERBOSE -eq 1 ] && echo "  ------"
+    [ $VERBOSE -eq 1 ] && echo "" 
 }
 
 # Blank line output
 echo_blank() {
-  [ $VERBOSE -eq 1 ] && echo "" 
+    [ $VERBOSE -eq 1 ] && echo "" 
 }
 
 # Execute custom before and after actions
