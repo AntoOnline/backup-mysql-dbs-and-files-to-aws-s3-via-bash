@@ -1,6 +1,10 @@
 # BackupToS3
 
-This is a highly configurable Bash script to backup MySQL databases, folders, zip them, and then upload them to AWS S3. 
+This is a highly configurable Bash script to backup MySQL databases, folders, zip them, and then upload them to AWS S3. Simply download the code, copy the example config file to a ```.settings.conf``` file, edit your settings and then run the backup script.
+
+To download the code use:
+
+```git clone https://github.com/RepositoriumCodice/BackupToS3```
 
 This tool can also: 
 - run pre/post scripts before backing a MySQL database or folder
