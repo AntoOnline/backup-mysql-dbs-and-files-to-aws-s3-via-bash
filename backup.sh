@@ -238,10 +238,10 @@ remove_old_backups_and_logs(){
     echo_completed    
 }
 
-error_if_file_not_exists "example.settings.conf"
+error_if_file_not_exists "$SCRIPTPATH/example.settings.conf"
 
 if [ ! -f $CONFIGFILE ]; then
-  cp "example.settings.conf" $CONFIGFILE
+  cp "$SCRIPTPATH/example.settings.conf" $CONFIGFILE
 fi
 
 source $CONFIGFILE
