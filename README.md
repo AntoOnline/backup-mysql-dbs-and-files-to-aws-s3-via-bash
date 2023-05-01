@@ -198,4 +198,8 @@ upload: backups/SomeOtherFolder.2021-03-13-15-43.tar.gz to s3://backups/backups/
   ------
 ````  
 
-Liked this code? Why not visit my blog at [https://anto.online](https://anto.online/code/). 
+# Want to connect?
+
+Feel free to contact me on [Twitter](https://twitter.com/OnlineAnto), [DEV Community](https://dev.to/antoonline/) or [LinkedIn](https://www.linkedin.com/in/anto-online) if you have any questions or suggestions.
+
+Or just visit my [website](https://anto.online) to see what I do.
